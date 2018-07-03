@@ -7,6 +7,8 @@ var decrementChildrenAge = document.querySelector("label.children-count-label ~ 
 var adultAge = document.querySelector("label.adult-count-label ~ input");
 var childrenAge = document.querySelector("label.children-count-label ~ input");
 
+modalHotelSearch.classList.add("modal-hidden");
+modalHotelSearch.classList.remove("modal-visible");
 callModalHotelSearch.addEventListener("click", function(evt) {
   evt.preventDefault();
   modalHotelSearch.classList.toggle("modal-hidden");
@@ -23,7 +25,7 @@ decrementAdultAge.addEventListener("click", function(evt) {
   try {
     adultAge.stepDown(1);
   } catch(err) {
-    adultAge.value = Number(adultAge.value) + 1;
+    adultAge.value = Number(adultAge.value) - 1;
   }
 });
 incrementChildrenAge.addEventListener("click", function(evt) {
@@ -37,6 +39,6 @@ decrementChildrenAge.addEventListener("click", function(evt) {
   try {
     childrenAge.stepDown(1);
   } catch(err) {
-    childrenAge.value = Number(childrenAge.value) + 1;
+    childrenAge.value = Number(childrenAge.value) - 1;
   }
 });

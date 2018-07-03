@@ -426,6 +426,7 @@ img {
 
 .main-map iframe {
   display: block;
+  border: none;
 }
 
 .main-footer {
@@ -709,6 +710,11 @@ a.social-link:active img {
   left: -41px;
   background-image: url("../img/checkbox-off.svg");
   background-repeat: no-repeat;
+}
+
+.search-filter-form input[type=checkbox]:focus + label::before,
+.search-filter-form input[type=checkbox]:hover + label::before {
+    outline: 2px solid #81b3d2;
 }
 
 .search-filter-form input[type=checkbox][disabled] + label::before {
