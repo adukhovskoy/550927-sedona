@@ -379,6 +379,7 @@ img {
 }
 
 .features-item.features-item-common p {
+  margin-top: 0;
   margin-bottom: auto;
   width: 300px;
 }
