@@ -5,7 +5,7 @@ body {
   margin-left: auto;
   margin-right: auto;
   width: 1200px;
-  font-family: "PT Sans", Arial, sans-serif;
+  font-family: "PT Sans", "Arial", sans-serif;
   font-size: 14px;
   line-height: 21px;
   font-weight: 400;
@@ -271,12 +271,6 @@ img {
   background-color: inherit;
 }
 
-.features-item p {
-  margin: 0px;
-  color: #333333;
-  background-color: #ffffff;
-}
-
 .features-item.features-item-place-ext {
   width: 1200px;
   color: #ffffff;
@@ -303,12 +297,10 @@ img {
   background-color: inherit;
 }
 
-.features-item p,
 .features-item-place-info p {
   margin-top: 0;
   margin-bottom: 20px;
   max-width: 320px;
-  letter-spacing: 0px;
   color: inherit;
   background-color: inherit;
 }
@@ -339,6 +331,18 @@ img {
 
 .features-item div.features-item-place-photo.devils-bridge {
   background-image: url("../img/devils-bridge.jpg");
+}
+
+.features-item.features-item-place p {
+  margin-top: 0;
+  margin-bottom: 20px;
+  max-width: 250px;
+  color: inherit;
+  background-color: inherit;
+}
+
+.features-item.features-item-place.awesome-road p {
+  max-width: 280px;
 }
 
 .features-list .features-item.features-item-common {
@@ -525,6 +529,7 @@ a.social-link:active img {
 }
 
 .modal-hotel-search label {
+  vertical-align: middle;
   display: inline-block;
   position: relative;
   font-weight: 700;
