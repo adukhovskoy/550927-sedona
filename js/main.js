@@ -6,6 +6,8 @@ var incrementChildrenAge = document.querySelector("label.children-count-label ~ 
 var decrementChildrenAge = document.querySelector("label.children-count-label ~ .button.decrement-age");
 var adultAge = document.querySelector("label.adult-count-label ~ input");
 var childrenAge = document.querySelector("label.children-count-label ~ input");
+var checkInDate = document.querySelector("input.check-in-date");
+var checkOutDate = document.querySelector("input.check-out-date");
 
 modalHotelSearch.classList.add("modal-hidden");
 modalHotelSearch.classList.remove("modal-visible");
@@ -13,6 +15,7 @@ callModalHotelSearch.addEventListener("click", function(evt) {
   evt.preventDefault();
   modalHotelSearch.classList.toggle("modal-hidden");
   modalHotelSearch.classList.toggle("modal-visible");
+  modalHotelSearch.classList.remove("modal-error");
 });
 incrementAdultAge.addEventListener("click", function(evt) {
   try {
@@ -22,10 +25,12 @@ incrementAdultAge.addEventListener("click", function(evt) {
   }
 });
 decrementAdultAge.addEventListener("click", function(evt) {
-  try {
-    adultAge.stepDown(1);
-  } catch(err) {
-    adultAge.value = Number(adultAge.value) - 1;
+  if (adultAge.value > 1) {
+    try {
+      adultAge.stepDown(1);
+    } catch(err) {
+      adultAge.value = Number(adultAge.value) - 1;
+    }
   }
 });
 incrementChildrenAge.addEventListener("click", function(evt) {
@@ -36,9 +41,19 @@ incrementChildrenAge.addEventListener("click", function(evt) {
   }
 });
 decrementChildrenAge.addEventListener("click", function(evt) {
-  try {
-    childrenAge.stepDown(1);
-  } catch(err) {
-    childrenAge.value = Number(childrenAge.value) - 1;
+  if (childrenAge.value > 0) {
+    try {
+      childrenAge.stepDown(1);
+    } catch(err) {
+      childrenAge.value = Number(childrenAge.value) - 1;
+    }
+  }
+});
+modalHotelSearch.addEventListener("submit", function(evt) {
+  if (!checkInDate.value || !checkOutDate.value || !childrenAge.value || !adultAge.value || adultAge.value < 1 || childrenAge.value < 0) {
+    evt.preventDefault();
+    modalHotelSearch.classList.remove("modal-error");
+    modalHotelSearch.offsetWidth = modalHotelSearch.offsetWidth;
+    modalHotelSearch.classList.add("modal-error");
   }
 });
